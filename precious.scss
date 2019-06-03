@@ -1,0 +1,36 @@
+@mixin anneau ($wh, $b, $m, $color) {
+    width: $wh;
+    height: $wh;
+    border-radius: 50%;
+    border: $b solid $color;
+    margin-left: $m;
+    
+    @if ($wh) {
+        box-shadow: 3px 5px 5px $color;
+    }
+}
+
+.anneau1 {
+    @include anneau(50px, 1px, 0px, orange);
+}
+
+.anneau2 {
+    @include anneau(50px, 1px, 0px, orange);
+}
+
+.anneau3 {
+    @include anneau(100px, 1px, 0px, yellow);
+}
+
+@for $i from 1 through 6 {
+    .anneau-#{$i} {
+        @include anneau(75px*$i/2, 1px*$i, -5px*$i, red);
+    }  
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
